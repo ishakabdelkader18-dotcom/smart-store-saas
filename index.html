@@ -1,1 +1,68 @@
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Store SaaS</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f9;color:#202b3c}
+header{background:#172554;color:white;padding:22px 18px}
+header h2{margin:0 0 8px}
+header p{margin:0;color:#cbd5e1}
+.container{padding:18px;max-width:1000px;margin:auto}
+h2{font-size:21px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:white;padding:20px 14px;border-radius:14px;box-shadow:0 2px 10px #0000000a}
+.card p{color:#64748b;margin:5px 0}
+.card strong{font-size:23px;color:#172554}
+nav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:22px 0}
+nav button{border:0;background:#e0e7ff;color:#172554;padding:14px 5px;border-radius:10px;font-size:14px;cursor:pointer}
+nav button:focus,nav button.active{background:#172554;color:white}
+.section{background:white;padding:20px;border-radius:14px;min-height:150px}
+.section p{color:#64748b}
+footer{text-align:center;color:#94a3b8;padding:25px}
+@media(max-width:350px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h2>Smart Store SaaS</h2>
+<p>نظام ذكي لإدارة جميع أنواع المتاجر</p>
+</header>
+<main class="container">
+<h2>لوحة التحكم الرئيسية</h2>
+<div class="cards">
+<div class="card"><p>إجمالي المبيعات</p><strong>0 د.ت</strong></div>
+<div class="card"><p>المنتجات</p><strong>0</strong></div>
+<div class="card"><p>العملاء</p><strong>0</strong></div>
+<div class="card"><p>الأرباح</p><strong>0 د.ت</strong></div>
+</div>
+<h2>إدارة المتجر</h2>
+<nav>
+<button class="active" onclick="showPage('products',this)">📦 المنتجات</button>
+<button onclick="showPage('sales',this)">🛒 المبيعات</button>
+<button onclick="showPage('customers',this)">👥 العملاء</button>
+</nav>
+<div class="section" id="content">
+<h2>📦 المنتجات</h2>
+<p>هنا ستتمكن من إدارة منتجات متجرك.</p>
+<p>قريبًا سنضيف تسجيل المنتجات والأسعار والكميات.</p>
+</div>
+</main>
+<footer>Smart Store SaaS © 2026</footer>
+<script>
+function showPage(page,button){
+ document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ const pages={
+  products:["📦 المنتجات","هنا ستتمكن من إدارة منتجات متجرك."],
+  sales:["🛒 المبيعات","هنا ستتمكن من تسجيل ومتابعة المبيعات."],
+  customers:["👥 العملاء","هنا ستتمكن من إدارة بيانات العملاء."]
+ };
+ const content=document.getElementById("content");
+ content.innerHTML="<h2>"+pages[page][0]+"</h2><p>"+pages[page][1]+"</p>";
+}
+</script>
+</body>
+</html>
